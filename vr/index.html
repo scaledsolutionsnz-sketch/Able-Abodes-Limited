@@ -3,26 +3,50 @@
 <head>
   <meta charset="utf-8">
   <title>360 View</title>
+
+  <!-- Marzipano -->
   <script src="https://www.marzipano.net/demos/vendor/marzipano.js"></script>
+
   <style>
-    html, body { margin: 0; height: 100%; }
-    #pano { width: 100%; height: 100vh; }
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #pano {
+      width: 100%;
+      height: 100vh;
+      background: #000;
+    }
   </style>
 </head>
-<body>
-  <div id="pano"></div>
 
-  <script>
-    var viewer = new Marzipano.Viewer(document.getElementById('pano'));
-    var source = Marzipano.ImageUrlSource.fromString("panorama.jpg");
-    var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
-    var view = new Marzipano.RectilinearView();
-    var scene = viewer.createScene({
-      source: source,
-      geometry: geometry,
-      view: view
-    });
-    scene.switchTo();
-  </script>
+<body>
+
+<div id="pano"></div>
+
+<script>
+  // create viewer
+  var viewer = new Marzipano.Viewer(document.getElementById('pano'));
+
+  // IMPORTANT: this must match your file name
+  var source = Marzipano.ImageUrlSource.fromString("panorama.jpg");
+
+  var geometry = new Marzipano.EquirectGeometry([
+    { width: 4000 }
+  ]);
+
+  var view = new Marzipano.RectilinearView();
+
+  var scene = viewer.createScene({
+    source: source,
+    geometry: geometry,
+    view: view
+  });
+
+  scene.switchTo();
+</script>
+
 </body>
 </html>
