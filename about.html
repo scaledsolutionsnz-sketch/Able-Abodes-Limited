@@ -1,1 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Able Abodes | Dunedin, NZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1a2e1e;--sage:#4a7c59;--cream:#f7f3ed;--warm:#e8dfd3;--gold:#c8a96e;--text:#3d3d3d;--white:#ffffff;--radius:12px;--radius-lg:20px;--transition:0.35s cubic-bezier(0.4,0,0.2,1);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(26,46,30,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+  .nav-logo{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--white);}
+  .nav-logo span{color:var(--gold);}
+  .nav-links{display:flex;gap:32px;list-style:none;}
+  .nav-links a{color:rgba(255,255,255,0.85);font-size:0.9rem;font-weight:500;transition:color var(--transition);}
+  .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+  .nav-cta{background:var(--gold);color:var(--forest)!important;padding:10px 22px;border-radius:50px;font-weight:600!important;}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+  .hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;}
+  .mobile-menu{display:none;position:fixed;inset:0;background:var(--forest);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{color:var(--white);font-size:1.4rem;font-family:'DM Serif Display',serif;}
 
+  .page-hero{background:var(--forest);padding:160px 5% 80px;position:relative;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;top:-60%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(74,124,89,0.25),transparent 70%);}
+  .page-hero .section-label{color:var(--gold);font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;}
+  .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);line-height:1.1;margin-bottom:16px;}
+  .page-hero p{color:rgba(255,255,255,0.7);max-width:600px;line-height:1.7;font-size:1.05rem;}
+
+  .section-label{font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage);margin-bottom:12px;}
+  .btn-primary{background:var(--gold);color:var(--forest);padding:14px 30px;border-radius:50px;font-weight:600;font-size:0.95rem;transition:var(--transition);display:inline-flex;align-items:center;gap:8px;}
+  .btn-primary:hover{background:var(--forest);color:var(--white);transform:translateY(-2px);}
+
+  /* STORY */
+  .story-section{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:100px 5%;}
+  .story-img{border-radius:var(--radius-lg);overflow:hidden;position:relative;}
+  .story-img img{width:100%;height:480px;object-fit:cover;}
+  .story-img-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(26,46,30,0.9),transparent);padding:24px;color:var(--white);font-size:0.88rem;font-style:italic;}
+  .story-content h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--forest);line-height:1.15;margin-bottom:20px;}
+  .story-content p{line-height:1.8;opacity:0.8;margin-bottom:14px;}
+  .pull-quote{border-left:4px solid var(--gold);padding-left:20px;margin:28px 0;font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--forest);line-height:1.5;font-style:italic;}
+
+  /* MISSION */
+  .mission-section{background:var(--white);padding:80px 5%;text-align:center;}
+  .mission-section h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--forest);margin-bottom:16px;}
+  .mission-section > p{max-width:640px;margin:0 auto 56px;line-height:1.75;opacity:0.75;font-size:1.05rem;}
+  .mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;text-align:left;}
+  .mission-card{background:var(--cream);border-radius:var(--radius-lg);padding:36px 28px;}
+  .mission-icon{font-size:2rem;margin-bottom:16px;}
+  .mission-card h3{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--forest);margin-bottom:10px;}
+  .mission-card p{font-size:0.9rem;line-height:1.65;opacity:0.75;}
+
+  /* TEAM */
+  .team-section{padding:80px 5%;}
+  .team-section h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--forest);margin-bottom:12px;}
+  .team-section > p{max-width:600px;line-height:1.7;opacity:0.75;margin-bottom:48px;}
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;}
+  .team-card{background:var(--white);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;}
+  .team-avatar{width:70px;height:70px;background:linear-gradient(135deg,var(--forest),var(--sage));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 16px;}
+  .team-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--forest);margin-bottom:4px;}
+  .team-card .role{font-size:0.8rem;color:var(--sage);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;}
+  .team-card p{font-size:0.85rem;line-height:1.6;opacity:0.7;}
+
+  /* IMAGES STRIP */
+  .images-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .images-strip img{width:100%;height:320px;object-fit:cover;}
+
+  /* VALUES */
+  .values-section{background:var(--forest);padding:80px 5%;}
+  .values-section .section-label{color:var(--gold);}
+  .values-section h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--white);margin-bottom:48px;max-width:500px;}
+  .values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .value-item{border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:32px;transition:var(--transition);}
+  .value-item:hover{border-color:rgba(200,169,110,0.4);background:rgba(255,255,255,0.03);}
+  .value-num{font-family:'DM Serif Display',serif;font-size:2rem;color:rgba(200,169,110,0.3);margin-bottom:8px;}
+  .value-item h3{color:var(--white);font-size:1rem;font-weight:600;margin-bottom:8px;}
+  .value-item p{color:rgba(255,255,255,0.6);font-size:0.88rem;line-height:1.65;}
+
+  /* CTA */
+  .about-cta{background:linear-gradient(135deg,var(--sage) 0%,var(--forest) 100%);text-align:center;padding:80px 5%;}
+  .about-cta h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--white);margin-bottom:12px;}
+  .about-cta p{color:rgba(255,255,255,0.75);margin:0 auto 36px;max-width:440px;line-height:1.7;}
+
+  footer{background:#111e14;color:rgba(255,255,255,0.6);padding:60px 5% 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+  .footer-col h4{color:var(--white);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .footer-col a{font-size:0.88rem;transition:color var(--transition);}
+  .footer-col a:hover{color:var(--gold);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:0.8rem;}
+
+  @media(max-width:900px){.story-section{grid-template-columns:1fr;gap:48px;}.mission-grid{grid-template-columns:1fr;}.values-grid{grid-template-columns:1fr;}.images-strip{grid-template-columns:1fr 1fr;}.footer-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:640px){.nav-links{display:none;}.hamburger{display:flex;}.images-strip{grid-template-columns:1fr;}.footer-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Able <span>Abodes</span></a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="contact.html" class="nav-cta">Enquire Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mm">
+  <a href="index.html" onclick="document.getElementById('mm').classList.remove('open')">Home</a>
+  <a href="services.html" onclick="document.getElementById('mm').classList.remove('open')">Services</a>
+  <a href="projects.html" onclick="document.getElementById('mm').classList.remove('open')">Projects</a>
+  <a href="about.html" onclick="document.getElementById('mm').classList.remove('open')">About</a>
+  <a href="contact.html" onclick="document.getElementById('mm').classList.remove('open')">Enquire Now</a>
+</div>
+
+<div class="page-hero">
+  <div class="section-label">Who We Are</div>
+  <h1>Built on a Belief<br>That Everyone<br><em style="color:var(--gold);font-style:italic;">Deserves a Home</em></h1>
+  <p>Able Abodes is a Dunedin-based company with a deeply personal mission — to make quality homeownership achievable for every New Zealander, regardless of income, background, or circumstance.</p>
+</div>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-img">
+    <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/xSer8BKG433jUZ78RwEr/media/65793bbb5d20446ea173baf8.jpeg" alt="Cyndee Elder Able Abodes founder Dunedin">
+    <div class="story-img-caption">Cyndee Elder — Managing Director, Able Abodes</div>
+  </div>
+  <div class="story-content">
+    <div class="section-label">Our Founder</div>
+    <h2>From Emergency Accommodation to Managing Director</h2>
+    <p>In 2016, Cyndee Elder found herself in emergency accommodation after leaving an abusive relationship. Eight weeks in transitional housing, with an 18-month waiting list for social housing, was the moment that sparked a mission.</p>
+    <div class="pull-quote">"I had a vision of what I wanted to do and I just gunned it."</div>
+    <p>With no background in housing, construction, or development — but with an extraordinary ability to bring people together — Cyndee assembled a skilled team of local Dunedin tradespeople: an architect, builder, joiner, electrician, and plumber. All united by a shared belief that they could do something meaningful.</p>
+    <p>Today, Able Abodes is a growing company with real homes on real sites, a community development underway at Karitāne, and a rent-to-own programme opening doors for people who thought homeownership was out of reach.</p>
+    <a href="contact.html" class="btn-primary" style="margin-top:8px;">Get in Touch →</a>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission-section">
+  <div class="section-label" style="text-align:center;display:block;">Our Mission</div>
+  <h2>Why We Do What We Do</h2>
+  <p>New Zealand's housing crisis is real. Able Abodes was created to offer a genuine alternative — not just to talk about the problem, but to build the solution, one home at a time.</p>
+  <div class="mission-grid">
+    <div class="mission-card">
+      <div class="mission-icon">🏠</div>
+      <h3>Affordable Homeownership</h3>
+      <p>With turn-key pricing from $279,000 and rent-to-own options, we're making homeownership achievable for people on real incomes.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-icon">🤝</div>
+      <h3>Community First</h3>
+      <p>Every home sold helps fund our community developments for those who need it most — people stuck on housing waiting lists and in transitional accommodation.</p>
+    </div>
+    <div class="mission-card">
+      <div class="mission-icon">🌿</div>
+      <h3>Built to Last</h3>
+      <p>Quality materials, local tradespeople, full building consent, and Homestar 8+ design — we never compromise on the build.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE STRIP -->
+<div class="images-strip">
+  <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/xSer8BKG433jUZ78RwEr/media/6579372a12a1a550db3105ec.jpeg" alt="Able Abodes interior quality">
+  <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/xSer8BKG433jUZ78RwEr/media/6579372a12a1a523143105ee.jpeg" alt="Able Abodes kitchen finishes">
+  <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/xSer8BKG433jUZ78RwEr/media/6579372a12a1a519c03105ed.jpeg" alt="Able Abodes outdoor deck">
+</div>
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="section-label">The Team</div>
+  <h2>Local Experts,<br>Real Passion</h2>
+  <p>Able Abodes is built on the voluntary contribution and genuine passion of skilled Dunedin professionals who believe in Cyndee's vision. Every person on our team has put their name on the line because they believe this matters.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">👩‍💼</div>
+      <h3>Cyndee Elder</h3>
+      <div class="role">Managing Director</div>
+      <p>Founder and visionary behind Able Abodes. Turned lived experience of housing hardship into a business that's changing lives.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">🏗️</div>
+      <h3>Sacha Gray</h3>
+      <div class="role">Lead Builder</div>
+      <p>Experienced builder who has led the construction of every Able Abode from foundations to finishing.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">📐</div>
+      <h3>Cameron Grindlay</h3>
+      <div class="role">Architect</div>
+      <p>Designed every Able Abode using passive and universal design principles to maximise the 54m² footprint.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">🪵</div>
+      <h3>Kevin Kyle</h3>
+      <div class="role">Joiner — Kitchen Revamp</div>
+      <p>Brings the interior to life with quality custom joinery, cabinetry, and kitchen fit-outs.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">⚡</div>
+      <h3>Laser Electrical</h3>
+      <div class="role">Electrical</div>
+      <p>All electrical work completed to code with high-quality fittings and smart home capability.</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">🔧</div>
+      <h3>Local Contractors</h3>
+      <div class="role">Plumbing, Roofing & More</div>
+      <p>A team of trusted Dunedin tradespeople who are proud to put their name on every Able Abode.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="section-label">What We Stand For</div>
+  <h2>Our Values</h2>
+  <div class="values-grid">
+    <div class="value-item">
+      <div class="value-num">01</div>
+      <h3>Integrity in Every Build</h3>
+      <p>No shortcuts. Full building consent. Quality materials. We build every home as if we were building it for ourselves.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-num">02</div>
+      <h3>People Over Profit</h3>
+      <p>Our mission is housing access, not developer margins. Every decision we make is guided by what's right for our customers.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-num">03</div>
+      <h3>Local Always</h3>
+      <p>We source materials locally, employ Dunedin tradespeople, and keep money in our community where it belongs.</p>
+    </div>
+    <div class="value-item">
+      <div class="value-num">04</div>
+      <h3>Innovation With Heart</h3>
+      <p>We're pioneering a new model of homeownership — one that's relocatable, rent-to-own, and built for real people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <h2>Ready to Find Out More?</h2>
+  <p>Whether you're a potential buyer, investor, or just curious — we'd love to have a conversation about what an Able Abode could mean for you.</p>
+  <a href="contact.html" class="btn-primary">Get in Touch →</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col" style="max-width:280px;">
+      <a href="index.html" style="font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--white);display:block;margin-bottom:10px;">Able <span style="color:var(--gold)">Abodes</span></a>
+      <p style="font-size:0.88rem;line-height:1.65;">Locally owned and built in Dunedin. Providing affordable, relocatable homes for New Zealanders.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects & Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:0278029230">📞 027 802 9230</a></li>
+        <li><a href="mailto:able.abodes2020@gmail.com">✉️ able.abodes2020@gmail.com</a></li>
+        <li><a href="#">📍 17b Derby Street, Dunedin</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Able Abodes Limited. All rights reserved.</span>
+    <span>Dunedin, New Zealand</span>
+  </div>
+</footer>
+</body>
+</html>
