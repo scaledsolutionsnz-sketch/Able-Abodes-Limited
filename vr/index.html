@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://www.marzipano.net/demos/vendor/marzipano.js"></script>
-<style>
-html, body { margin: 0; height: 100%; }
-#pano { width: 100%; height: 100%; }
-</style>
+  <meta charset="utf-8">
+  <title>360 View</title>
+  <script src="https://www.marzipano.net/demos/vendor/marzipano.js"></script>
+  <style>
+    html, body { margin: 0; height: 100%; }
+    #pano { width: 100%; height: 100vh; }
+  </style>
 </head>
 <body>
-<div id="pano"></div>
+  <div id="pano"></div>
 
-<script>
-var viewer = new Marzipano.Viewer(document.getElementById('pano'));
-var source = Marzipano.ImageUrlSource.fromString("panorama.jpg");
-var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
-var view = new Marzipano.RectilinearView();
-var scene = viewer.createScene({ source: source, geometry: geometry, view: view });
-scene.switchTo();
-</script>
-
+  <script>
+    var viewer = new Marzipano.Viewer(document.getElementById('pano'));
+    var source = Marzipano.ImageUrlSource.fromString("panorama.jpg");
+    var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
+    var view = new Marzipano.RectilinearView();
+    var scene = viewer.createScene({
+      source: source,
+      geometry: geometry,
+      view: view
+    });
+    scene.switchTo();
+  </script>
 </body>
 </html>
