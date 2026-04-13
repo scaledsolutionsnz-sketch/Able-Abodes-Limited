@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Feedback | Able Abodes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1a2e1e;--sage:#4a7c59;--cream:#f7f3ed;--gold:#c8a96e;--text:#3d3d3d;--white:#ffffff;--transition:0.3s cubic-bezier(0.4,0,0.2,1);}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--forest);min-height:100vh;display:flex;flex-direction:column;}
+  a{text-decoration:none;color:inherit;}
+
+  nav{padding:20px 5%;display:flex;align-items:center;justify-content:space-between;}
+  .nav-logo{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--white);}
+  .nav-logo span{color:var(--gold);}
+  .back-link{color:rgba(255,255,255,0.7);font-size:0.88rem;display:flex;align-items:center;gap:6px;transition:color var(--transition);}
+  .back-link:hover{color:var(--gold);}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 5%;}
+
+  .form-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:56px 48px;max-width:520px;width:100%;backdrop-filter:blur(10px);}
+
+  .form-card .stars-display{display:flex;gap:6px;margin-bottom:28px;justify-content:center;}
+  .form-card .stars-display svg{width:28px;height:28px;}
+  .form-card .stars-display svg .star-shape{fill:rgba(255,255,255,0.2);}
+  .form-card .stars-display svg.filled .star-shape{fill:var(--gold);}
+
+  h1{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);color:var(--white);line-height:1.2;margin-bottom:10px;text-align:center;}
+  .subtitle{color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.6;text-align:center;margin-bottom:36px;max-width:360px;margin-left:auto;margin-right:auto;}
+
+  .form-group{margin-bottom:20px;}
+  label{display:block;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:8px;}
+  input,textarea{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:14px 18px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.97rem;transition:border-color var(--transition),background var(--transition);outline:none;resize:vertical;}
+  input::placeholder,textarea::placeholder{color:rgba(255,255,255,0.3);}
+  input:focus,textarea:focus{border-color:rgba(200,169,110,0.6);background:rgba(255,255,255,0.09);}
+  textarea{min-height:130px;}
+
+  .submit-btn{width:100%;background:var(--gold);color:var(--forest);border:none;padding:16px;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;letter-spacing:0.02em;box-shadow:0 4px 20px rgba(200,169,110,0.3);transition:background var(--transition),transform var(--transition),box-shadow var(--transition);margin-top:8px;}
+  .submit-btn:hover{background:var(--white);transform:translateY(-2px);box-shadow:0 8px 32px rgba(200,169,110,0.4);}
+  .submit-btn:active{transform:translateY(0);}
+
+  .privacy-note{margin-top:16px;font-size:0.78rem;color:rgba(255,255,255,0.3);text-align:center;line-height:1.5;}
+
+  /* THANK YOU STATE */
+  .thankyou{display:none;text-align:center;padding:20px 0;}
+  .thankyou.visible{display:block;}
+  .form-fields.hidden{display:none;}
+
+  .check-circle{width:72px;height:72px;background:rgba(74,124,89,0.2);border:2px solid var(--sage);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+  .check-circle svg{width:32px;height:32px;color:var(--sage);}
+  .thankyou h2{font-family:'DM Serif Display',serif;font-size:1.9rem;color:var(--white);margin-bottom:12px;}
+  .thankyou p{color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:28px;}
+  .thankyou a{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--forest);padding:14px 32px;border-radius:50px;font-weight:600;font-size:0.95rem;transition:background var(--transition),transform var(--transition);}
+  .thankyou a:hover{background:var(--white);transform:translateY(-2px);}
+
+  footer{padding:20px 5%;text-align:center;color:rgba(255,255,255,0.3);font-size:0.78rem;}
+
+  @media(max-width:500px){
+    .form-card{padding:36px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Able <span>Abodes</span></a>
+  <a href="review.html" class="back-link">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Change rating
+  </a>
+</nav>
+
+<main>
+  <div class="form-card">
+
+    <!-- Stars display (filled based on rating param) -->
+    <div class="stars-display" id="starsDisplay">
+      <svg viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg viewBox="0 0 24 24"><polygon class="star-shape" points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </div>
+
+    <h1>Tell Us More</h1>
+    <p class="subtitle">We take all feedback seriously. Your thoughts go directly to our team and help us improve.</p>
+
+    <!-- FORM -->
+    <div class="form-fields" id="formFields">
+      <form id="feedbackForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="fname">Your Name</label>
+          <input type="text" id="fname" name="name" placeholder="e.g. Sarah" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="femail">Email Address</label>
+          <input type="email" id="femail" name="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="ffeedback">Your Feedback</label>
+          <textarea id="ffeedback" name="feedback" placeholder="What could we do better? We genuinely want to know." required></textarea>
+        </div>
+        <input type="hidden" name="rating" id="ratingInput">
+        <button type="submit" class="submit-btn">Send Feedback Privately</button>
+        <p class="privacy-note">Your feedback is sent directly to our team and is never published publicly.</p>
+      </form>
+    </div>
+
+    <!-- THANK YOU -->
+    <div class="thankyou" id="thankyou">
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Thanks for your feedback,<br>we appreciate it.</h2>
+      <p>We've received your message and our team will take it on board. We're always looking for ways to improve.</p>
+      <a href="index.html">Back to Able Abodes</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>© 2025 Able Abodes Limited · Dunedin, New Zealand</footer>
+
+<script>
+  // Fill stars based on ?rating= param
+  const params = new URLSearchParams(window.location.search);
+  const rating = parseInt(params.get('rating')) || 0;
+  if (rating) {
+    document.getElementById('ratingInput').value = rating;
+    const stars = document.querySelectorAll('#starsDisplay svg');
+    stars.forEach((s, i) => { if (i < rating) s.classList.add('filled'); });
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      feedback: form.feedback.value,
+      rating: form.rating.value
+    };
+
+    // Send via mailto as fallback (opens email client)
+    const subject = encodeURIComponent('Able Abodes Private Feedback – ' + data.rating + ' star(s)');
+    const body = encodeURIComponent(
+      'Name: ' + data.name + '\n' +
+      'Email: ' + data.email + '\n' +
+      'Rating: ' + data.rating + ' star(s)\n\n' +
+      'Feedback:\n' + data.feedback
+    );
+    // Silently attempt to send via hidden mailto link
+    const a = document.createElement('a');
+    a.href = 'mailto:able.abodes2020@gmail.com?subject=' + subject + '&body=' + body;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Show thank-you regardless
+    document.getElementById('formFields').classList.add('hidden');
+    document.getElementById('thankyou').classList.add('visible');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+</script>
+</body>
+</html>
