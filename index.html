@@ -60,9 +60,11 @@
 
   /* HERO */
   .hero{position:relative;height:100svh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden;}
-  .hero-bg{position:absolute;inset:0;background:url('images/affordable.jpg') center/cover no-repeat;transform:scale(1.05);animation:heroZoom 8s ease forwards;}
-  .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,53,104,0.92) 0%,rgba(0,53,104,0.4) 50%,rgba(0,0,0,0.2) 100%);}
-  @keyframes heroZoom{from{transform:scale(1.05);}to{transform:scale(1);}}
+  .hero-slides{position:absolute;inset:0;overflow:hidden;}
+  .hero-slide{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;transform:scale(1.06);transition:opacity 1.4s ease;}
+  .hero-slide.active{opacity:1;animation:heroZoom 9s ease forwards;}
+  .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(0,40,80,0.80) 0%,rgba(0,40,80,0.48) 42%,rgba(0,40,80,0.14) 78%,rgba(0,40,80,0.05) 100%),linear-gradient(to top,rgba(0,40,80,0.92) 0%,rgba(0,40,80,0.55) 45%,rgba(0,40,80,0.38) 100%);}
+  @keyframes heroZoom{from{transform:scale(1.06);}to{transform:scale(1);}}
   .hero-content{position:relative;z-index:2;padding:0 5% 40px;max-width:780px;animation:fadeUp 1s 0.3s both;}
   .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(244,171,7,0.2);border:1px solid var(--gold);color:var(--gold);padding:6px 16px;border-radius:50px;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;}
   .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,6vw,5rem);color:var(--white);line-height:1.05;margin-bottom:20px;}
@@ -269,7 +271,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('images/affordable.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/relocatable.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/quality.jpg')"></div>
+  </div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
@@ -693,6 +700,16 @@
 </footer>
 
 <script>
+  // Hero image rotation (crossfade)
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  if (heroSlides.length > 1) {
+    let heroIdx = 0;
+    setInterval(() => {
+      heroSlides[heroIdx].classList.remove('active');
+      heroIdx = (heroIdx + 1) % heroSlides.length;
+      heroSlides[heroIdx].classList.add('active');
+    }, 5500);
+  }
   // Nav scroll
   const nav = document.getElementById('mainNav');
   window.addEventListener('scroll', () => {
