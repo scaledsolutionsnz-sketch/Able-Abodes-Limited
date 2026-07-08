@@ -61,12 +61,16 @@
   @media(max-width:500px){
     .form-card{padding:36px 20px;}
   }
+  nav .nav-logo--img{background:transparent;box-shadow:none;padding:0;}
+  nav .nav-logo{color:var(--forest);}
+  .nav-logo--img{display:inline-flex;align-items:center;}
+  .nav-logo--img img{height:40px;width:auto;display:block;}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Able <span>Abodes</span></a>
+  <a href="index.html" class="nav-logo nav-logo--img" aria-label="Able Abodes"><img src="images/logo.png" alt="Able Abodes — Innovative Housing"></a>
   <a href="review.html" class="back-link">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
     Change rating

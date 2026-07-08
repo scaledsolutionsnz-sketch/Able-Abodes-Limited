@@ -30,8 +30,8 @@
   a{text-decoration:none;color:inherit;}
 
   /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;transition:background var(--transition),box-shadow var(--transition);}
-  nav.scrolled{background:rgba(0,53,104,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;transition:background var(--transition),box-shadow var(--transition);background:#fff;box-shadow:0 1px 0 rgba(0,53,104,.07),0 10px 30px -24px rgba(0,53,104,.5);}
+  nav.scrolled{background:#fff;box-shadow:0 4px 22px -8px rgba(0,53,104,0.22);}
   .nav-logo{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--white);letter-spacing:-0.02em;}
   .nav-logo span{color:var(--gold);}
   .nav-logo--img{background:#fff;border-radius:12px;padding:8px 14px;display:inline-flex;align-items:center;box-shadow:0 6px 18px -8px rgba(0,0,0,.4);}
@@ -49,12 +49,12 @@
   .feature-body p{color:var(--text);font-size:.98rem;line-height:1.7;opacity:.9;}
   @media(max-width:760px){.features-grid{grid-template-columns:1fr;}.feature-card img{height:240px;}}
   .nav-links{display:flex;gap:32px;list-style:none;}
-  .nav-links a{color:rgba(255,255,255,0.85);font-size:0.9rem;font-weight:500;letter-spacing:0.03em;transition:color var(--transition);}
+  .nav-links a{color:var(--forest);font-size:0.9rem;font-weight:500;letter-spacing:0.03em;transition:color var(--transition);}
   .nav-links a:hover{color:var(--gold);}
   .nav-cta{background:var(--gold);color:var(--forest)!important;padding:10px 22px;border-radius:50px;font-weight:600!important;}
   .nav-cta:hover{background:var(--white)!important;color:var(--forest)!important;}
   .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-  .hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition);}
+  .hamburger span{width:24px;height:2px;background:var(--forest);border-radius:2px;transition:var(--transition);}
   .mobile-menu{display:none;position:fixed;inset:0;background:var(--forest);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
   .mobile-menu.open{display:flex;}
   .mobile-menu a{color:var(--white);font-size:1.4rem;font-family:'DM Serif Display',serif;}
@@ -237,6 +237,8 @@
   .model3d-credit{text-align:center;margin-top:20px;font-size:.8rem;color:var(--text);opacity:.6;}
   .model3d-credit a{color:var(--sage);text-decoration:underline;}
   @media(max-width:600px){.house-3d{height:380px;}}
+  nav .nav-logo--img{background:transparent;box-shadow:none;padding:0;}
+  nav .nav-logo{color:var(--forest);}
 </style>
 <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 </head>
