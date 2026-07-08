@@ -227,7 +227,18 @@
   .service-icon svg{width:28px;height:28px;stroke:#fff}
   .trust-card-icon svg{width:30px;height:30px;stroke:#fff}
   .footer-col a svg{width:15px;height:15px;vertical-align:-2px;margin-right:6px;stroke:currentColor;display:inline-block}
+
+  /* 3D MODEL */
+  .model3d-section{padding:100px 5%;background:var(--cream);}
+  .model3d-head{max-width:640px;margin:0 auto 44px;text-align:center;}
+  .model3d-wrap{max-width:1000px;margin:0 auto;border-radius:var(--radius-lg);overflow:hidden;background:linear-gradient(165deg,#eaf1f8,#d6e3f0);box-shadow:0 30px 70px -34px rgba(0,53,104,.45);position:relative;}
+  .house-3d{width:100%;height:540px;background:transparent;--poster-color:transparent;}
+  .ar-btn{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--forest);border:none;border-radius:50px;padding:11px 22px;font-weight:600;font-size:.9rem;cursor:pointer;box-shadow:0 8px 22px -8px rgba(0,53,104,.5);}
+  .model3d-credit{text-align:center;margin-top:20px;font-size:.8rem;color:var(--text);opacity:.6;}
+  .model3d-credit a{color:var(--sage);text-decoration:underline;}
+  @media(max-width:600px){.house-3d{height:380px;}}
 </style>
+<script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -383,6 +394,25 @@
       </div>
     </article>
   </div>
+</section>
+
+<!-- 3D MODEL -->
+<section class="model3d-section" id="explore-3d">
+  <div class="model3d-head">
+    <div class="section-label" style="justify-content:center;display:flex;">Explore in 3D</div>
+    <h2 class="section-title" style="text-align:center;margin:0 auto 12px;">Walk Around an Able Abode</h2>
+    <p class="section-sub" style="margin:0 auto;text-align:center;">Drag to rotate, scroll to zoom &mdash; take a look from every angle. On a phone, tap the cube to place it in your own space with AR.</p>
+  </div>
+  <div class="model3d-wrap">
+    <model-viewer class="house-3d" src="models/house/scene.gltf" alt="Able Abodes relocatable tiny home 3D model"
+      camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="18deg"
+      touch-action="pan-y" interaction-prompt="none" shadow-intensity="1" exposure="1.15"
+      camera-orbit="35deg 72deg auto" min-camera-orbit="auto 20deg auto" max-camera-orbit="auto 100deg auto"
+      ar ar-modes="webxr scene-viewer quick-look">
+      <button slot="ar-button" class="ar-btn">View in your space</button>
+    </model-viewer>
+  </div>
+  <p class="model3d-credit">3D model: &ldquo;Small Midwestern House 1&rdquo; by hamma085, licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC&nbsp;Attribution</a> (via Sketchfab).</p>
 </section>
 
 <!-- ABOUT STRIP -->
