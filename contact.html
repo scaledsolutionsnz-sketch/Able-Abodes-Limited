@@ -7,14 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--forest:#1a2e1e;--sage:#4a7c59;--cream:#f7f3ed;--gold:#c8a96e;--text:#3d3d3d;--white:#ffffff;--radius:12px;--radius-lg:20px;--transition:0.35s cubic-bezier(0.4,0,0.2,1);}
+  :root{--forest: #003568;--sage: #1a5c9e;--cream:#f7f3ed;--gold: #f4ab07;--text:#3d3d3d;--white:#ffffff;--radius:12px;--radius-lg:20px;--transition:0.35s cubic-bezier(0.4,0,0.2,1);}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;}
   img{display:block;max-width:100%;}
   a{text-decoration:none;color:inherit;}
 
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(26,46,30,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(0,53,104,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.2);}
   .nav-logo{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--white);}
   .nav-logo span{color:var(--gold);}
   .nav-links{display:flex;gap:32px;list-style:none;}
@@ -40,7 +40,7 @@
   .contact-info p{line-height:1.75;opacity:0.75;margin-bottom:32px;}
   .contact-methods{display:flex;flex-direction:column;gap:16px;}
   .contact-method{display:flex;align-items:center;gap:16px;background:var(--white);border-radius:var(--radius-lg);padding:18px 22px;transition:var(--transition);text-decoration:none;color:var(--text);}
-  .contact-method:hover{transform:translateX(4px);box-shadow:0 6px 20px rgba(26,46,30,0.1);}
+  .contact-method:hover{transform:translateX(4px);box-shadow:0 6px 20px rgba(0,53,104,0.1);}
   .method-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--forest),var(--sage));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
   .method-label{font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:var(--sage);margin-bottom:2px;}
   .method-value{font-weight:600;color:var(--forest);font-size:0.95rem;}
@@ -52,7 +52,7 @@
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
   .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
   .form-group label{font-size:0.82rem;font-weight:600;color:var(--forest);text-transform:uppercase;letter-spacing:0.05em;}
-  .form-group input,.form-group select,.form-group textarea{font-family:'DM Sans',sans-serif;font-size:0.95rem;color:var(--text);background:var(--cream);border:1.5px solid rgba(26,46,30,0.12);border-radius:var(--radius);padding:13px 16px;transition:border-color var(--transition);outline:none;width:100%;}
+  .form-group input,.form-group select,.form-group textarea{font-family:'DM Sans',sans-serif;font-size:0.95rem;color:var(--text);background:var(--cream);border:1.5px solid rgba(0,53,104,0.12);border-radius:var(--radius);padding:13px 16px;transition:border-color var(--transition);outline:none;width:100%;}
   .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--sage);}
   .form-group textarea{resize:vertical;min-height:120px;}
   .form-group select{cursor:pointer;}
@@ -67,7 +67,7 @@
   .map-section{padding:0;}
   .map-section iframe{width:100%;height:420px;border:none;display:block;}
 
-  footer{background:#111e14;color:rgba(255,255,255,0.6);padding:60px 5% 30px;}
+  footer{background:#04294f;color:rgba(255,255,255,0.6);padding:60px 5% 30px;}
   .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px;}
   .footer-col h4{color:var(--white);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;}
   .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}

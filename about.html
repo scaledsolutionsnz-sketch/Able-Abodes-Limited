@@ -7,13 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{--forest:#1a2e1e;--sage:#4a7c59;--cream:#f7f3ed;--warm:#e8dfd3;--gold:#c8a96e;--text:#3d3d3d;--white:#ffffff;--radius:12px;--radius-lg:20px;--transition:0.35s cubic-bezier(0.4,0,0.2,1);}
+  :root{--forest: #003568;--sage: #1a5c9e;--cream:#f7f3ed;--warm:#e8dfd3;--gold: #f4ab07;--text:#3d3d3d;--white:#ffffff;--radius:12px;--radius-lg:20px;--transition:0.35s cubic-bezier(0.4,0,0.2,1);}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden;}
   img{display:block;max-width:100%;}
   a{text-decoration:none;color:inherit;}
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(26,46,30,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.2);}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(0,53,104,0.97);box-shadow:0 2px 20px rgba(0,0,0,0.2);}
   .nav-logo{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--white);}
   .nav-logo span{color:var(--gold);}
   .nav-links{display:flex;gap:32px;list-style:none;}
@@ -40,7 +40,7 @@
   .story-section{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:100px 5%;}
   .story-img{border-radius:var(--radius-lg);overflow:hidden;position:relative;}
   .story-img img{width:100%;height:480px;object-fit:cover;}
-  .story-img-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(26,46,30,0.9),transparent);padding:24px;color:var(--white);font-size:0.88rem;font-style:italic;}
+  .story-img-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,53,104,0.9),transparent);padding:24px;color:var(--white);font-size:0.88rem;font-style:italic;}
   .story-content h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--forest);line-height:1.15;margin-bottom:20px;}
   .story-content p{line-height:1.8;opacity:0.8;margin-bottom:14px;}
   .pull-quote{border-left:4px solid var(--gold);padding-left:20px;margin:28px 0;font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--forest);line-height:1.5;font-style:italic;}
@@ -76,8 +76,8 @@
   .values-section h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--white);margin-bottom:48px;max-width:500px;}
   .values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   .value-item{border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:32px;transition:var(--transition);}
-  .value-item:hover{border-color:rgba(200,169,110,0.4);background:rgba(255,255,255,0.03);}
-  .value-num{font-family:'DM Serif Display',serif;font-size:2rem;color:rgba(200,169,110,0.3);margin-bottom:8px;}
+  .value-item:hover{border-color:rgba(244,171,7,0.4);background:rgba(255,255,255,0.03);}
+  .value-num{font-family:'DM Serif Display',serif;font-size:2rem;color:rgba(244,171,7,0.3);margin-bottom:8px;}
   .value-item h3{color:var(--white);font-size:1rem;font-weight:600;margin-bottom:8px;}
   .value-item p{color:rgba(255,255,255,0.6);font-size:0.88rem;line-height:1.65;}
 
@@ -86,7 +86,7 @@
   .about-cta h2{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--white);margin-bottom:12px;}
   .about-cta p{color:rgba(255,255,255,0.75);margin:0 auto 36px;max-width:440px;line-height:1.7;}
 
-  footer{background:#111e14;color:rgba(255,255,255,0.6);padding:60px 5% 30px;}
+  footer{background:#04294f;color:rgba(255,255,255,0.6);padding:60px 5% 30px;}
   .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:48px;}
   .footer-col h4{color:var(--white);font-size:0.88rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:16px;}
   .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
